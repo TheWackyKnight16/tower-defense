@@ -1,0 +1,5 @@
+[gd_resource type="ViewportTexture" format=3 uid="uid://cth80efd4ocj6"]
+
+[resource]
+resource_local_to_scene = false
+viewport_path = NodePath("SubViewport")
