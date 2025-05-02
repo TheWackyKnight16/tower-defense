@@ -3,9 +3,11 @@ extends Node3D
 @export var turret_range:float = 20.0
 @export var turret_speed:float = 0.5
 @export var damage:int = 5
+@export var projectile_speed:float = 10.0
+
+@export var projectile_scene:PackedScene
 
 var turret_firing_timer:float = 0.0
-
 var enemies_in_range:Array[Node3D]
 
 func _ready():
@@ -14,12 +16,36 @@ func _ready():
     $RangeArea/CollisionShape3D.shape.radius = turret_range
     $RangeArea/MeshInstance3D.mesh.radius = turret_range
 
-func _process(delta):
+func _process(_delta):
+    pass
+
+func projectile_fire(delta, target: Node3D = null):
     if turret_firing_timer < turret_speed:
         turret_firing_timer += delta
         return
     
-    var target = find_closest_enemy()
+    if target == null:
+        target = find_closest_enemy()
+    if target == null:
+        return
+
+    var projectile_instance = projectile_scene.instantiate()
+    projectile_instance.transform.origin = global_position
+    projectile_instance.target = target
+    projectile_instance.damage = damage
+    projectile_instance.speed = projectile_speed
+    projectile_instance.add_to_group("projectiles")
+    get_tree().current_scene.add_child(projectile_instance)
+
+    turret_firing_timer = 0.0
+
+func ray_cast_fire(delta, target: Node3D = null):
+    if turret_firing_timer < turret_speed:
+        turret_firing_timer += delta
+        return
+    
+    if target == null:
+        target = find_closest_enemy()
     if target == null:
         return
     
