@@ -69,6 +69,8 @@ func object_selection():
 		if Input.is_action_just_pressed("left_click") && !turret_placement_mode && shape_result_screen.size() > 0:
 			var turret_colliders: Array
 			for object in shape_result_screen:
+				if !object.has("collider"):
+					return
 				if object.collider.is_in_group("turrets"):
 					turret_colliders.append(object.collider)
 

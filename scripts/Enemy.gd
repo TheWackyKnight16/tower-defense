@@ -8,8 +8,13 @@ extends CharacterBody3D
 var cur_health:int = max_health
 var target = null
 
+var anim: AnimationPlayer
+
 func _ready():
     add_to_group("enemies")
+
+    anim = get_node("TempEnemy/AnimationPlayer")
+    anim.play("ArmatureAction")
 
 func _process(_delta):
     move_to_target()
@@ -24,6 +29,9 @@ func move_to_target():
     var direction = (target.global_position - global_position).normalized()
     velocity = direction * speed
     move_and_slide()
+
+    look_at(target.global_position)
+    rotation.y += deg_to_rad(90)
 
 func find_closest_turret():
     var turrets = get_tree().get_nodes_in_group("turrets")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://0v5sd78clnep"]
+[gd_scene load_steps=6 format=3 uid="uid://0v5sd78clnep"]
 
 [ext_resource type="Script" uid="uid://chriv0ujt11m6" path="res://scripts/Enemy.gd" id="1_7p1mj"]
+[ext_resource type="PackedScene" uid="uid://5mmuguian2wo" path="res://scenes/temp_enemy.tscn" id="2_md0e3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8tegq"]
 albedo_color = Color(1, 0, 0, 1)
@@ -16,9 +17,12 @@ material = SubResource("StandardMaterial3D_8tegq")
 script = ExtResource("1_7p1mj")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("CylinderMesh_7p1mj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_md0e3")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="TempEnemy" parent="." instance=ExtResource("2_md0e3")]
