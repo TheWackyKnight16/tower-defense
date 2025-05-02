@@ -1,0 +1,503 @@
+[gd_scene load_steps=2 format=3 uid="uid://bh504anwv7h73"]
+
+[ext_resource type="Script" uid="uid://cynj8sub06jt4" path="res://scripts/WaveManager.gd" id="1_8fe1o"]
+
+[node name="WaveManager" type="Node3D"]
+script = ExtResource("1_8fe1o")
+
+[node name="SpawnGroup" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.4556, 0, 60.2058)
+
+[node name="Marker3D" type="Marker3D" parent="SpawnGroup"]
+
+[node name="Marker3D2" type="Marker3D" parent="SpawnGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.31032, 0, 2.16814)
+
+[node name="Marker3D3" type="Marker3D" parent="SpawnGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.16336, 0, -0.888584)
+
+[node name="Marker3D4" type="Marker3D" parent="SpawnGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.959671, 0, -3.1989)
+
+[node name="Marker3D5" type="Marker3D" parent="SpawnGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.41695, 0, -2.59467)
+
+[node name="Marker3D6" type="Marker3D" parent="SpawnGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.58988, 0, 0.781953)
+
+[node name="Marker3D7" type="Marker3D" parent="SpawnGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0663, 0, 3.51879)
+
+[node name="Marker3D8" type="Marker3D" parent="SpawnGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.29117, 0, 1.42173)
+
+[node name="Marker3D9" type="Marker3D" parent="SpawnGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.04715, 0, -4.05194)
+
+[node name="Marker3D10" type="Marker3D" parent="SpawnGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35285, 0, -6.25194)
+
+[node name="Marker3D11" type="Marker3D" parent="SpawnGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.25285, 0, -2.55194)
+
+[node name="Marker3D12" type="Marker3D" parent="SpawnGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.39981, 0, 4.55673)
+
+[node name="Marker3D13" type="Marker3D" parent="SpawnGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70408, 0, 6.014)
+
+[node name="Marker3D14" type="Marker3D" parent="SpawnGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59592, 0, 7.414)
+
+[node name="Marker3D15" type="Marker3D" parent="SpawnGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.30408, 0, 5.114)
+
+[node name="Marker3D16" type="Marker3D" parent="SpawnGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.99592, 0, 1.214)
+
+[node name="Marker3D17" type="Marker3D" parent="SpawnGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.20408, 0, -1.386)
+
+[node name="Marker3D18" type="Marker3D" parent="SpawnGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.19592, 0, -6.386)
+
+[node name="Marker3D19" type="Marker3D" parent="SpawnGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.89243, 0, 4.98788)
+
+[node name="Marker3D20" type="Marker3D" parent="SpawnGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44472, 0, 8.57775)
+
+[node name="Marker3D21" type="Marker3D" parent="SpawnGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.15528, 0, 10.1778)
+
+[node name="Marker3D22" type="Marker3D" parent="SpawnGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.45528, 0, 9.17776)
+
+[node name="Marker3D23" type="Marker3D" parent="SpawnGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.365, 0, 2.10463)
+
+[node name="SpawnGroup2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.3613, 3.05176e-05, -133.096)
+
+[node name="Marker3D" type="Marker3D" parent="SpawnGroup2"]
+
+[node name="Marker3D2" type="Marker3D" parent="SpawnGroup2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.31032, 0, 2.16814)
+
+[node name="Marker3D3" type="Marker3D" parent="SpawnGroup2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.16336, 0, -0.888584)
+
+[node name="Marker3D4" type="Marker3D" parent="SpawnGroup2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.959671, 0, -3.1989)
+
+[node name="Marker3D5" type="Marker3D" parent="SpawnGroup2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.41695, 0, -2.59467)
+
+[node name="Marker3D6" type="Marker3D" parent="SpawnGroup2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.58988, 0, 0.781953)
+
+[node name="Marker3D7" type="Marker3D" parent="SpawnGroup2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0663, 0, 3.51879)
+
+[node name="Marker3D8" type="Marker3D" parent="SpawnGroup2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.29117, 0, 1.42173)
+
+[node name="Marker3D9" type="Marker3D" parent="SpawnGroup2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.04715, 0, -4.05194)
+
+[node name="Marker3D10" type="Marker3D" parent="SpawnGroup2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35285, 0, -6.25194)
+
+[node name="Marker3D11" type="Marker3D" parent="SpawnGroup2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.25285, 0, -2.55194)
+
+[node name="Marker3D12" type="Marker3D" parent="SpawnGroup2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.39981, 0, 4.55673)
+
+[node name="Marker3D13" type="Marker3D" parent="SpawnGroup2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70408, 0, 6.014)
+
+[node name="Marker3D14" type="Marker3D" parent="SpawnGroup2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59592, 0, 7.414)
+
+[node name="Marker3D15" type="Marker3D" parent="SpawnGroup2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.30408, 0, 5.114)
+
+[node name="Marker3D16" type="Marker3D" parent="SpawnGroup2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.99592, 0, 1.214)
+
+[node name="Marker3D17" type="Marker3D" parent="SpawnGroup2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.20408, 0, -1.386)
+
+[node name="Marker3D18" type="Marker3D" parent="SpawnGroup2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.19592, 0, -6.386)
+
+[node name="Marker3D19" type="Marker3D" parent="SpawnGroup2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.89243, 0, 4.98788)
+
+[node name="Marker3D20" type="Marker3D" parent="SpawnGroup2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44472, 0, 8.57775)
+
+[node name="Marker3D21" type="Marker3D" parent="SpawnGroup2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.15528, 0, 10.1778)
+
+[node name="Marker3D22" type="Marker3D" parent="SpawnGroup2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.45528, 0, 9.17776)
+
+[node name="Marker3D23" type="Marker3D" parent="SpawnGroup2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.365, 0, 2.10463)
+
+[node name="SpawnGroup3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.1208, 0, 125.249)
+
+[node name="Marker3D" type="Marker3D" parent="SpawnGroup3"]
+
+[node name="Marker3D2" type="Marker3D" parent="SpawnGroup3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.31032, 0, 2.16814)
+
+[node name="Marker3D3" type="Marker3D" parent="SpawnGroup3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.16336, 0, -0.888584)
+
+[node name="Marker3D4" type="Marker3D" parent="SpawnGroup3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.959671, 0, -3.1989)
+
+[node name="Marker3D5" type="Marker3D" parent="SpawnGroup3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.41695, 0, -2.59467)
+
+[node name="Marker3D6" type="Marker3D" parent="SpawnGroup3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.58988, 0, 0.781953)
+
+[node name="Marker3D7" type="Marker3D" parent="SpawnGroup3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0663, 0, 3.51879)
+
+[node name="Marker3D8" type="Marker3D" parent="SpawnGroup3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.29117, 0, 1.42173)
+
+[node name="Marker3D9" type="Marker3D" parent="SpawnGroup3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.04715, 0, -4.05194)
+
+[node name="Marker3D10" type="Marker3D" parent="SpawnGroup3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35285, 0, -6.25194)
+
+[node name="Marker3D11" type="Marker3D" parent="SpawnGroup3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.25285, 0, -2.55194)
+
+[node name="Marker3D12" type="Marker3D" parent="SpawnGroup3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.39981, 0, 4.55673)
+
+[node name="Marker3D13" type="Marker3D" parent="SpawnGroup3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70408, 0, 6.014)
+
+[node name="Marker3D14" type="Marker3D" parent="SpawnGroup3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59592, 0, 7.414)
+
+[node name="Marker3D15" type="Marker3D" parent="SpawnGroup3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.30408, 0, 5.114)
+
+[node name="Marker3D16" type="Marker3D" parent="SpawnGroup3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.99592, 0, 1.214)
+
+[node name="Marker3D17" type="Marker3D" parent="SpawnGroup3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.20408, 0, -1.386)
+
+[node name="Marker3D18" type="Marker3D" parent="SpawnGroup3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.19592, 0, -6.386)
+
+[node name="Marker3D19" type="Marker3D" parent="SpawnGroup3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.89243, 0, 4.98788)
+
+[node name="Marker3D20" type="Marker3D" parent="SpawnGroup3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44472, 0, 8.57775)
+
+[node name="Marker3D21" type="Marker3D" parent="SpawnGroup3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.15528, 0, 10.1778)
+
+[node name="Marker3D22" type="Marker3D" parent="SpawnGroup3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.45528, 0, 9.17776)
+
+[node name="Marker3D23" type="Marker3D" parent="SpawnGroup3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.365, 0, 2.10463)
+
+[node name="SpawnGroup4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.0522, 0, -67.3062)
+
+[node name="Marker3D" type="Marker3D" parent="SpawnGroup4"]
+
+[node name="Marker3D2" type="Marker3D" parent="SpawnGroup4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.31032, 0, 2.16814)
+
+[node name="Marker3D3" type="Marker3D" parent="SpawnGroup4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.16336, 0, -0.888584)
+
+[node name="Marker3D4" type="Marker3D" parent="SpawnGroup4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.959671, 0, -3.1989)
+
+[node name="Marker3D5" type="Marker3D" parent="SpawnGroup4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.41695, 0, -2.59467)
+
+[node name="Marker3D6" type="Marker3D" parent="SpawnGroup4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.58988, 0, 0.781953)
+
+[node name="Marker3D7" type="Marker3D" parent="SpawnGroup4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0663, 0, 3.51879)
+
+[node name="Marker3D8" type="Marker3D" parent="SpawnGroup4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.29117, 0, 1.42173)
+
+[node name="Marker3D9" type="Marker3D" parent="SpawnGroup4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.04715, 0, -4.05194)
+
+[node name="Marker3D10" type="Marker3D" parent="SpawnGroup4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35285, 0, -6.25194)
+
+[node name="Marker3D11" type="Marker3D" parent="SpawnGroup4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.25285, 0, -2.55194)
+
+[node name="Marker3D12" type="Marker3D" parent="SpawnGroup4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.39981, 0, 4.55673)
+
+[node name="Marker3D13" type="Marker3D" parent="SpawnGroup4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70408, 0, 6.014)
+
+[node name="Marker3D14" type="Marker3D" parent="SpawnGroup4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59592, 0, 7.414)
+
+[node name="Marker3D15" type="Marker3D" parent="SpawnGroup4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.30408, 0, 5.114)
+
+[node name="Marker3D16" type="Marker3D" parent="SpawnGroup4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.99592, 0, 1.214)
+
+[node name="Marker3D17" type="Marker3D" parent="SpawnGroup4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.20408, 0, -1.386)
+
+[node name="Marker3D18" type="Marker3D" parent="SpawnGroup4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.19592, 0, -6.386)
+
+[node name="Marker3D19" type="Marker3D" parent="SpawnGroup4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.89243, 0, 4.98788)
+
+[node name="Marker3D20" type="Marker3D" parent="SpawnGroup4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44472, 0, 8.57775)
+
+[node name="Marker3D21" type="Marker3D" parent="SpawnGroup4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.15528, 0, 10.1778)
+
+[node name="Marker3D22" type="Marker3D" parent="SpawnGroup4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.45528, 0, 9.17776)
+
+[node name="Marker3D23" type="Marker3D" parent="SpawnGroup4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.365, 0, 2.10463)
+
+[node name="SpawnGroup5" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.2196, 0, 194.574)
+
+[node name="Marker3D" type="Marker3D" parent="SpawnGroup5"]
+
+[node name="Marker3D2" type="Marker3D" parent="SpawnGroup5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.31032, 0, 2.16814)
+
+[node name="Marker3D3" type="Marker3D" parent="SpawnGroup5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.16336, 0, -0.888584)
+
+[node name="Marker3D4" type="Marker3D" parent="SpawnGroup5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.959671, 0, -3.1989)
+
+[node name="Marker3D5" type="Marker3D" parent="SpawnGroup5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.41695, 0, -2.59467)
+
+[node name="Marker3D6" type="Marker3D" parent="SpawnGroup5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.58988, 0, 0.781953)
+
+[node name="Marker3D7" type="Marker3D" parent="SpawnGroup5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0663, 0, 3.51879)
+
+[node name="Marker3D8" type="Marker3D" parent="SpawnGroup5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.29117, 0, 1.42173)
+
+[node name="Marker3D9" type="Marker3D" parent="SpawnGroup5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.04715, 0, -4.05194)
+
+[node name="Marker3D10" type="Marker3D" parent="SpawnGroup5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35285, 0, -6.25194)
+
+[node name="Marker3D11" type="Marker3D" parent="SpawnGroup5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.25285, 0, -2.55194)
+
+[node name="Marker3D12" type="Marker3D" parent="SpawnGroup5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.39981, 0, 4.55673)
+
+[node name="Marker3D13" type="Marker3D" parent="SpawnGroup5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70408, 0, 6.014)
+
+[node name="Marker3D14" type="Marker3D" parent="SpawnGroup5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59592, 0, 7.414)
+
+[node name="Marker3D15" type="Marker3D" parent="SpawnGroup5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.30408, 0, 5.114)
+
+[node name="Marker3D16" type="Marker3D" parent="SpawnGroup5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.99592, 0, 1.214)
+
+[node name="Marker3D17" type="Marker3D" parent="SpawnGroup5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.20408, 0, -1.386)
+
+[node name="Marker3D18" type="Marker3D" parent="SpawnGroup5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.19592, 0, -6.386)
+
+[node name="Marker3D19" type="Marker3D" parent="SpawnGroup5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.89243, 0, 4.98788)
+
+[node name="Marker3D20" type="Marker3D" parent="SpawnGroup5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44472, 0, 8.57775)
+
+[node name="Marker3D21" type="Marker3D" parent="SpawnGroup5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.15528, 0, 10.1778)
+
+[node name="Marker3D22" type="Marker3D" parent="SpawnGroup5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.45528, 0, 9.17776)
+
+[node name="Marker3D23" type="Marker3D" parent="SpawnGroup5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.365, 0, 2.10463)
+
+[node name="SpawnGroup6" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.0088, 0, -1.93855)
+
+[node name="Marker3D" type="Marker3D" parent="SpawnGroup6"]
+
+[node name="Marker3D2" type="Marker3D" parent="SpawnGroup6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.31032, 0, 2.16814)
+
+[node name="Marker3D3" type="Marker3D" parent="SpawnGroup6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.16336, 0, -0.888584)
+
+[node name="Marker3D4" type="Marker3D" parent="SpawnGroup6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.959671, 0, -3.1989)
+
+[node name="Marker3D5" type="Marker3D" parent="SpawnGroup6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.41695, 0, -2.59467)
+
+[node name="Marker3D6" type="Marker3D" parent="SpawnGroup6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.58988, 0, 0.781953)
+
+[node name="Marker3D7" type="Marker3D" parent="SpawnGroup6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0663, 0, 3.51879)
+
+[node name="Marker3D8" type="Marker3D" parent="SpawnGroup6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.29117, 0, 1.42173)
+
+[node name="Marker3D9" type="Marker3D" parent="SpawnGroup6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.04715, 0, -4.05194)
+
+[node name="Marker3D10" type="Marker3D" parent="SpawnGroup6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35285, 0, -6.25194)
+
+[node name="Marker3D11" type="Marker3D" parent="SpawnGroup6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.25285, 0, -2.55194)
+
+[node name="Marker3D12" type="Marker3D" parent="SpawnGroup6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.39981, 0, 4.55673)
+
+[node name="Marker3D13" type="Marker3D" parent="SpawnGroup6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70408, 0, 6.014)
+
+[node name="Marker3D14" type="Marker3D" parent="SpawnGroup6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59592, 0, 7.414)
+
+[node name="Marker3D15" type="Marker3D" parent="SpawnGroup6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.30408, 0, 5.114)
+
+[node name="Marker3D16" type="Marker3D" parent="SpawnGroup6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.99592, 0, 1.214)
+
+[node name="Marker3D17" type="Marker3D" parent="SpawnGroup6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.20408, 0, -1.386)
+
+[node name="Marker3D18" type="Marker3D" parent="SpawnGroup6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.19592, 0, -6.386)
+
+[node name="Marker3D19" type="Marker3D" parent="SpawnGroup6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.89243, 0, 4.98788)
+
+[node name="Marker3D20" type="Marker3D" parent="SpawnGroup6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44472, 0, 8.57775)
+
+[node name="Marker3D21" type="Marker3D" parent="SpawnGroup6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.15528, 0, 10.1778)
+
+[node name="Marker3D22" type="Marker3D" parent="SpawnGroup6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.45528, 0, 9.17776)
+
+[node name="Marker3D23" type="Marker3D" parent="SpawnGroup6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.365, 0, 2.10463)
+
+[node name="SpawnGroup7" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.1589, 0, -192.654)
+
+[node name="Marker3D" type="Marker3D" parent="SpawnGroup7"]
+
+[node name="Marker3D2" type="Marker3D" parent="SpawnGroup7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.31032, 0, 2.16814)
+
+[node name="Marker3D3" type="Marker3D" parent="SpawnGroup7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.16336, 0, -0.888584)
+
+[node name="Marker3D4" type="Marker3D" parent="SpawnGroup7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.959671, 0, -3.1989)
+
+[node name="Marker3D5" type="Marker3D" parent="SpawnGroup7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.41695, 0, -2.59467)
+
+[node name="Marker3D6" type="Marker3D" parent="SpawnGroup7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.58988, 0, 0.781953)
+
+[node name="Marker3D7" type="Marker3D" parent="SpawnGroup7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0663, 0, 3.51879)
+
+[node name="Marker3D8" type="Marker3D" parent="SpawnGroup7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.29117, 0, 1.42173)
+
+[node name="Marker3D9" type="Marker3D" parent="SpawnGroup7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.04715, 0, -4.05194)
+
+[node name="Marker3D10" type="Marker3D" parent="SpawnGroup7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35285, 0, -6.25194)
+
+[node name="Marker3D11" type="Marker3D" parent="SpawnGroup7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.25285, 0, -2.55194)
+
+[node name="Marker3D12" type="Marker3D" parent="SpawnGroup7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.39981, 0, 4.55673)
+
+[node name="Marker3D13" type="Marker3D" parent="SpawnGroup7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70408, 0, 6.014)
+
+[node name="Marker3D14" type="Marker3D" parent="SpawnGroup7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59592, 0, 7.414)
+
+[node name="Marker3D15" type="Marker3D" parent="SpawnGroup7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.30408, 0, 5.114)
+
+[node name="Marker3D16" type="Marker3D" parent="SpawnGroup7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.99592, 0, 1.214)
+
+[node name="Marker3D17" type="Marker3D" parent="SpawnGroup7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.20408, 0, -1.386)
+
+[node name="Marker3D18" type="Marker3D" parent="SpawnGroup7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.19592, 0, -6.386)
+
+[node name="Marker3D19" type="Marker3D" parent="SpawnGroup7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.89243, 0, 4.98788)
+
+[node name="Marker3D20" type="Marker3D" parent="SpawnGroup7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44472, 0, 8.57775)
+
+[node name="Marker3D21" type="Marker3D" parent="SpawnGroup7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.15528, 0, 10.1778)
+
+[node name="Marker3D22" type="Marker3D" parent="SpawnGroup7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.45528, 0, 9.17776)
+
+[node name="Marker3D23" type="Marker3D" parent="SpawnGroup7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.365, 0, 2.10463)

@@ -1,8 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cio58rnfx4e1a"]
+[gd_scene load_steps=14 format=3 uid="uid://cio58rnfx4e1a"]
 
 [ext_resource type="Material" uid="uid://hqs5i2lcn62v" path="res://assets/shaders/realistic_crt_shader.tres" id="2_0wfyh"]
+[ext_resource type="LabelSettings" uid="uid://b6sjq7hdpd7o6" path="res://assets/fonts/main.tres" id="2_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://cxy7i8v7d5vl7" path="res://assets/sprites/monitor-cursor.png" id="2_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://chm465ha72rcv" path="res://assets/sprites/temp-hud-corners.png" id="2_tefeu"]
 [ext_resource type="PackedScene" uid="uid://ydvdelwtvmgv" path="res://assets/models/temp_terminal.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://bh504anwv7h73" path="res://scenes/wave_manager.tscn" id="4_tbgi4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sgp6g"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -17,19 +20,15 @@ sky = SubResource("Sky_o5qli")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="NavigationMesh" id="NavigationMesh_jyhfs"]
-vertices = PackedVector3Array(-89.75, 0.4, -57.243, -89.75, 0.4, 57.257, 89.75, 0.4, 57.257, 89.75, 0.4, -57.243)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_sugp2"]
-size = Vector3(180.5, 0.2, 115.486)
+size = Vector3(200, 0.2, 130)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jyhfs"]
-albedo_color = Color(0.321728, 0.321728, 0.321728, 1)
+albedo_color = Color(0.454524, 0.454524, 0.454524, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_tbgi4"]
 material = SubResource("StandardMaterial3D_jyhfs")
-size = Vector3(180.5, 0.2, 115.486)
+size = Vector3(200, 0.2, 130)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_0wfyh"]
 viewport_path = NodePath("Environment/TerminalScreen")
@@ -42,28 +41,25 @@ viewport_path = NodePath("Environment/TerminalScreen")
 environment = SubResource("Environment_0wfyh")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+transform = Transform3D(-0.866025, -0.433013, 0.25, -0.231548, 0.790475, 0.567041, -0.443154, 0.433184, -0.784835, 0, 0, 0)
 shadow_enabled = true
 
 [node name="Main" type="Camera3D" parent="Environment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.227755, -19.3245, -2.2495)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.227755, -19.3245, 115.189)
 current = true
 size = 9.2112
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Environment"]
-navigation_mesh = SubResource("NavigationMesh_jyhfs")
-
-[node name="Ground" type="StaticBody3D" parent="Environment/NavigationRegion3D" groups=["ground"]]
+[node name="Ground" type="StaticBody3D" parent="Environment" groups=["ground"]]
 collision_layer = 8
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/NavigationRegion3D/Ground"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Ground"]
 shape = SubResource("BoxShape3D_sugp2")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/NavigationRegion3D/Ground"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Ground"]
 mesh = SubResource("BoxMesh_tbgi4")
 
 [node name="TempTerminal2" parent="Environment" node_paths=PackedStringArray("screen_sprite", "sub_viewport") instance=ExtResource("4_jyhfs")]
-transform = Transform3D(1.18, 0, 0, 0, 1.1783, 0.063381, 0, -0.063381, 1.1783, -2.32759, -19.5566, -8.23521)
+transform = Transform3D(1.18, 0, 0, 0, 1.1783, 0.063381, 0, -0.063381, 1.1783, -2.32759, -19.5566, 109.203)
 screen_sprite = NodePath("Sprite3D")
 sub_viewport = NodePath("../TerminalScreen")
 
@@ -77,10 +73,50 @@ texture = SubResource("ViewportTexture_0wfyh")
 size = Vector2i(727, 457)
 
 [node name="Camera3D" type="Camera3D" parent="Environment/TerminalScreen"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 64.8388, 0)
-fov = 80.0
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 80.0997, 0)
+size = 100.0
 
 [node name="CRTShader" type="CanvasLayer" parent="Environment/TerminalScreen"]
+
+[node name="TurretSelection" type="Control" parent="Environment/TerminalScreen/CRTShader"]
+visible = false
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -107.21
+offset_top = 33.655
+offset_right = -67.21
+offset_bottom = 73.655
+grow_horizontal = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Environment/TerminalScreen/CRTShader/TurretSelection"]
+layout_mode = 0
+offset_right = 99.0
+offset_bottom = 56.0
+
+[node name="TurretName" type="Label" parent="Environment/TerminalScreen/CRTShader/TurretSelection/VBoxContainer"]
+layout_mode = 2
+text = "Turret Name"
+label_settings = ExtResource("2_o6xl0")
+
+[node name="TurretName2" type="Label" parent="Environment/TerminalScreen/CRTShader/TurretSelection/VBoxContainer"]
+layout_mode = 2
+text = "rof"
+label_settings = ExtResource("2_o6xl0")
+
+[node name="TurretName3" type="Label" parent="Environment/TerminalScreen/CRTShader/TurretSelection/VBoxContainer"]
+layout_mode = 2
+text = "dmg"
+label_settings = ExtResource("2_o6xl0")
+
+[node name="TextureRect" type="TextureRect" parent="Environment/TerminalScreen/CRTShader"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tefeu")
 
 [node name="Cursor" type="TextureRect" parent="Environment/TerminalScreen/CRTShader"]
 offset_right = 32.0
@@ -96,3 +132,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="WaveManager" parent="." instance=ExtResource("4_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -199.291, 0, 0)

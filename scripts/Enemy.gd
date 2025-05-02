@@ -1,7 +1,7 @@
 class_name Enemy
 extends CharacterBody3D
 
-@export var max_health:int = 10
+@export var max_health:int = 5
 @export var speed:float = 10
 @export var damage:int = 1
 
@@ -10,6 +10,9 @@ var target = null
 
 func _ready():
     add_to_group("enemies")
+
+func _process(_delta):
+    move_to_target()
 
 func move_to_target():
     if target == null:

@@ -1,0 +1,11 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://b6sjq7hdpd7o6"]
+
+[ext_resource type="FontFile" uid="uid://bv2iujgg0oiye" path="res://assets/fonts/Perfect DOS VGA 437.ttf" id="1_h4po4"]
+
+[resource]
+font = ExtResource("1_h4po4")
+font_size = 12
+font_color = Color(0.0745098, 0.631373, 0.054902, 1)
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 0.156863)
