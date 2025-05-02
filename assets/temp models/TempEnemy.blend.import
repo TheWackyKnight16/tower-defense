@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cvdguo5l4reaa"
-path="res://.godot/imported/TempEnemy.blend-cafdcf523d22393cb393065730311adb.scn"
+path="res://.godot/imported/TempEnemy.blend-bc45c65d8a36780538e3fc53cceb819f.scn"
 
 [deps]
 
-source_file="res://assets/models/TempEnemy.blend"
-dest_files=["res://.godot/imported/TempEnemy.blend-cafdcf523d22393cb393065730311adb.scn"]
+source_file="res://assets/temp models/TempEnemy.blend"
+dest_files=["res://.godot/imported/TempEnemy.blend-bc45c65d8a36780538e3fc53cceb819f.scn"]
 
 [params]
 

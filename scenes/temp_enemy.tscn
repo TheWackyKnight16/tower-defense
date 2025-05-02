@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://mviclcvbhbim"]
+
+[ext_resource type="PackedScene" uid="uid://cvdguo5l4reaa" path="res://assets/temp models/TempEnemy.blend" id="1_xq7ou"]
+
+[node name="TempEnemy" instance=ExtResource("1_xq7ou")]
+
+[node name="Plane" parent="." index="0"]
+transform = Transform3D(-0.706162, -0.0365412, -0.707107, -0.0516771, 0.998664, 1.86265e-09, 0.706162, 0.0365412, -0.707107, 14, 6.6, -8.1)
+
+[node name="Plane_001" parent="." index="1"]
+transform = Transform3D(0.706162, 0.0365412, 0.707107, -0.0516771, 0.998664, -1.86265e-09, -0.706162, -0.0365412, 0.707107, 14, 6.6, 8.1)
+
+[node name="Plane_002" parent="." index="2"]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 0, 6.6, -8.1)

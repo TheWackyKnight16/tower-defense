@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c3t4h2u58146d"
-path="res://.godot/imported/TempTerminal.blend-119ae13b711716135da8451c43dbd09a.scn"
+uid="uid://6wb87pr3iev3"
+path="res://.godot/imported/TEMP_turret.blend-fbaf46f8161ad27f9917824b7d87da02.scn"
 
 [deps]
 
-source_file="res://assets/models/TempTerminal.blend"
-dest_files=["res://.godot/imported/TempTerminal.blend-119ae13b711716135da8451c43dbd09a.scn"]
+source_file="res://assets/temp models/turrets/TEMP_turret.blend"
+dest_files=["res://.godot/imported/TEMP_turret.blend-fbaf46f8161ad27f9917824b7d87da02.scn"]
 
 [params]
 
