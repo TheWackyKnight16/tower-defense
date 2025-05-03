@@ -64,7 +64,6 @@ collision_layer = 8
 shape = SubResource("BoxShape3D_sugp2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Ground"]
-visible = false
 mesh = SubResource("BoxMesh_tbgi4")
 
 [node name="TempTerminal2" parent="Environment" node_paths=PackedStringArray("screen_sprite", "sub_viewport") instance=ExtResource("4_jyhfs")]
@@ -166,3 +165,4 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 42.2036, 0.0949714, 4.63784)
 
 [node name="TempMoon" parent="." instance=ExtResource("13_trceg")]
 transform = Transform3D(60, 0, 0, 0, 60, 0, 0, 0, 60, -2.78008, 0.100006, -53.4677)
+visible = false
