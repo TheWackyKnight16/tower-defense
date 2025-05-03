@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://buc77xgp0h2o2"]
+
+[ext_resource type="Script" uid="uid://x6sm87rgm8y4" path="res://scripts/Projectile/Projectile.gd" id="1_3x7vg"]
+[ext_resource type="Resource" uid="uid://duxq5m8lbn5pm" path="res://resources/base_turret_projectile_data.tres" id="2_1ndus"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_6aapk"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_c8fcr"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_q3m7n"]
+radius = 10.0
+
+[node name="BaseTurretProjectile" type="Node3D"]
+script = ExtResource("1_3x7vg")
+projectile_data = ExtResource("2_1ndus")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_6aapk")
+
+[node name="CollisionArea" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionArea"]
+shape = SubResource("SphereShape3D_c8fcr")
+
+[node name="DetectionArea" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
+shape = SubResource("SphereShape3D_q3m7n")
+
+[connection signal="body_entered" from="CollisionArea" to="." method="_on_collision_area_body_entered"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

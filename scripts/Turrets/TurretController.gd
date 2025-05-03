@@ -1,11 +1,20 @@
 extends Node3D
 
+@export_category("Turret")
+@export_enum("RayCast", "Projectile") var turret_type
+
+enum TurretType {
+    RayCast,
+    Projectile
+}
+
 @export var turret_range:float = 20.0
 @export var turret_speed:float = 0.5
 @export var damage:int = 5
-@export var projectile_speed:float = 10.0
 
+@export_category("Projectile")
 @export var projectile_scene:PackedScene
+@export var projectile_data:ProjectileData
 
 var turret_firing_timer:float = 0.0
 var enemies_in_range:Array[Node3D]
@@ -17,7 +26,10 @@ func _ready():
     $RangeArea/MeshInstance3D.mesh.radius = turret_range
 
 func _process(_delta):
-    pass
+    if turret_type == TurretType.RayCast:
+        ray_cast_fire(_delta)
+    elif turret_type == TurretType.Projectile:
+        projectile_fire(_delta)
 
 func projectile_fire(delta, target: Node3D = null):
     if turret_firing_timer < turret_speed:
@@ -30,10 +42,9 @@ func projectile_fire(delta, target: Node3D = null):
         return
 
     var projectile_instance = projectile_scene.instantiate()
-    projectile_instance.transform.origin = global_position
-    projectile_instance.target = target
-    projectile_instance.damage = damage
-    projectile_instance.speed = projectile_speed
+    projectile_instance.projectile_data = projectile_data
+    projectile_instance.transform.origin = global_position + Vector3(0, 1, 0)
+    projectile_instance.target_direction = (Vector3(target.global_position.x, 1, target.global_position .z) - Vector3(global_position.x, 1, global_position.z))
     projectile_instance.add_to_group("projectiles")
     get_tree().current_scene.add_child(projectile_instance)
 
@@ -50,7 +61,7 @@ func ray_cast_fire(delta, target: Node3D = null):
         return
     
     var space_state = get_world_3d().direct_space_state
-    var query = PhysicsRayQueryParameters3D.create(global_position, target.global_position)
+    var query = PhysicsRayQueryParameters3D.create(Vector3(target.global_position.x, 1, target.global_position .z), Vector3(global_position.x, 1, global_position.z))
     var result = space_state.intersect_ray(query)
     if result.is_empty():
         return

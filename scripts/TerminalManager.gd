@@ -6,7 +6,7 @@ extends Node3D
 @onready var screen_camera = sub_viewport.get_node("Camera3D")
 @onready var cursor = sub_viewport.get_node("CRTShader/Cursor")
 
-var turret = preload("res://scenes/turret_test.tscn")
+var turret = preload("res://scenes/turrets/turret_test.tscn")
 
 var screen_collider_body: StaticBody3D
 var main_camera: Camera3D
