@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bdy7478tn0b1t"
-path="res://.godot/imported/TripodLeg.glb-aaf06ddbb29d148efce7a3a6ba880211.scn"
+path="res://.godot/imported/TempMinigunTurret.glb-cc4a8e4c2308462c6f211a3fdcbdd678.scn"
 
 [deps]
 
-source_file="res://assets/temp models/turrets/TripodLeg.glb"
-dest_files=["res://.godot/imported/TripodLeg.glb-aaf06ddbb29d148efce7a3a6ba880211.scn"]
+source_file="res://assets/temp models/turrets/TempMinigunTurret.glb"
+dest_files=["res://.godot/imported/TempMinigunTurret.glb-cc4a8e4c2308462c6f211a3fdcbdd678.scn"]
 
 [params]
 
