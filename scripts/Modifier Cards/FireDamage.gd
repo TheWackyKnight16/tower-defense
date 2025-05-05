@@ -1,7 +1,7 @@
 extends Effect
 class_name FireDamage
 
-@export var extra_fire_damage:int = 0
+@export var extra_fire_damage:int = 1
 @export var burn_chance:float = 0.25
 @export var burn_damage:float = 2.0
 @export var burn_duration:float = 3.0
