@@ -15,15 +15,17 @@ extends Node3D
 @export var projectile_scene:PackedScene
 
 var base_stats:Dictionary = {
-	"damage": damage,
-	"turret_range": turret_range,
-	"fire_rate": fire_rate,
-	"turn_speed": turn_speed,
-	"pierce": pierce,
-	"critical_chance": critical_chance,
-	"critical_damage": critical_damage,
-	"projectile_speed": projectile_speed
+	"damage": 0,
+	"turret_range": 0,
+	"fire_rate": 0,
+	"turn_speed": 0,
+	"pierce": 0,
+	"critical_chance": 0,
+	"critical_damage": 0,
+	"projectile_speed": 0
 }
+
+var final_stats:Dictionary = {}
 
 @export_category("Modifiers")
 @export var testing_modifier:Resource
@@ -68,19 +70,20 @@ func projectile_fire(delta, target: Node3D = null):
 
 	# Turn
 	var target_direction = atan2(target.global_position.x - global_position.x, target.global_position.z - global_position.z)
-	turret_head.rotation.y = move_toward(turret_head.rotation.y, target_direction, turn_speed * delta)
+	turret_head.rotation.y = move_toward(turret_head.rotation.y, target_direction, final_stats["turn_speed"] * delta)
 
-	if turret_firing_timer < get_stat("fire_rate"):
+	if turret_firing_timer < final_stats["fire_rate"]:
 		turret_firing_timer += delta
 		return
 
 	# Fire
 	if abs(turret_head.rotation.y) <= abs(target_direction) + deg_to_rad(5) && abs(turret_head.rotation.y) >= abs(target_direction) - deg_to_rad(5):
 		var proj = projectile_scene.instantiate()
-		proj.speed = get_stat("projectile_speed")
-		proj.damage = get_stat("damage")
-		proj.max_pierce = get_stat("pierce")
-		critical_chance = get_stat("critical_chance")
+		proj.speed = final_stats["projectile_speed"]
+		proj.damage = final_stats["damage"]
+		proj.max_pierce = final_stats["pierce"]
+		proj.pierce = proj.max_pierce
+		critical_chance = final_stats["critical_chance"]
 		proj.hit_callbacks = []
 		
 		for effect in mods:
@@ -93,9 +96,7 @@ func projectile_fire(delta, target: Node3D = null):
 
 		critical_damage = get_stat("critical_damage")
 		if randf() < critical_chance:
-			print("Critical hit!")
 			proj.damage *= critical_damage
-			print(proj.damage)
 		
 		proj.transform.origin = Vector3(global_position.x, 1, global_position.z)
 		proj.target_direction = (Vector3(target.global_position.x, 1, target.global_position .z) - Vector3(global_position.x, 1, global_position.z))
@@ -115,11 +116,6 @@ func get_stat(stat_name: String) -> float:
 
 	return value
 
-func on_projectile_hit(proj, target):
-	for effect in mods:
-		if effect.has_method("on_projectile_hit"):
-			effect.on_projectile_hit(proj, target)
-
 func slot_card(card_res: Resource):
 	for effect in card_res.effects:
 		mods.append(effect)
@@ -128,6 +124,16 @@ func slot_card(card_res: Resource):
 			effect.on_slot(self)
 		
 	mods.sort_custom(func(a,b): return a.priortiy - b.priortiy)
+
+	final_stats = base_stats.duplicate()
+	for effect in mods:
+		for stat_name in final_stats.keys():
+			if effect.mode == Effect.MODE.ADDITIVE:
+				final_stats[stat_name] = effect.modify(stat_name, final_stats[stat_name])
+			if effect.mode == Effect.MODE.MULTIPLICATIVE:
+				final_stats[stat_name] = effect.modify(stat_name, final_stats[stat_name])
+	
+	print(final_stats)
 
 func unslot_card(card_res: Resource):
 	for effect in card_res.effects:

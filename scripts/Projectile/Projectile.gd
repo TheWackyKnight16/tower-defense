@@ -9,6 +9,9 @@ var speed:float = 0.0
 var max_pierce:int = 0
 var pierce:int = 0
 
+var size:float = 0.5
+var detection_range:float = 5
+
 var target_direction:Vector3
 
 var hit_callbacks:Array = []
@@ -19,6 +22,9 @@ func _ready():
 	if target_direction == null:
 		queue_free()
 		return
+	
+	collision_area.get_child(0).shape.radius = size
+	detection_area.get_child(0).shape.radius = detection_range
 
 func _process(_delta):
 	global_position += target_direction.normalized() * speed * _delta

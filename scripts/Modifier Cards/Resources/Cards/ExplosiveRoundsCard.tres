@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://dq1kfa72xcrgg"]
+
+[ext_resource type="Resource" uid="uid://prxmsqo8rx6t" path="res://scripts/Modifier Cards/Resources/Effects/explosive_rounds.tres" id="1_epktk"]
+[ext_resource type="Script" uid="uid://ds4d7e6borbyc" path="res://scripts/Modifier Cards/Card.gd" id="1_nqoxm"]
+
+[resource]
+script = ExtResource("1_nqoxm")
+name = "Explosive Rounds"
+description = "Adds explosive effect, projectile speed is havled "
+effects = Array[Resource]([ExtResource("1_epktk")])
+metadata/_custom_type_script = "uid://ds4d7e6borbyc"

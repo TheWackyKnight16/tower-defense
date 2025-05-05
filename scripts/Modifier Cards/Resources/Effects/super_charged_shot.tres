@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SuperChargedShot" load_steps=2 format=3 uid="uid://ci2pmk01lug4g"]
+
+[ext_resource type="Script" uid="uid://be153rqjno0ll" path="res://scripts/Modifier Cards/SuperChargedShot.gd" id="1_ic1wj"]
+
+[resource]
+script = ExtResource("1_ic1wj")
+shot_count = 4
+super_charged_pierce = 2
+super_charged_damage = 1.15
+super_charged_size = 1.5
+mode = 0
+priortiy = 0
+metadata/_custom_type_script = "uid://be153rqjno0ll"
