@@ -2,7 +2,7 @@ extends Node3D
 
 @export_category("Turret")
 @export var turret_head:Node3D = null
-@export var damage:int = 1
+@export var damage:float = 1.0
 @export var turret_range:float = 20.0
 @export var fire_rate:float = 1.0
 @export var turn_speed:float = 1.0
@@ -32,11 +32,16 @@ var mods:Array = []
 var turret_firing_timer:float = 0.0
 var enemies_in_range:Array[Node3D]
 
+var range_collision_shape:CollisionShape3D
+var range_mesh_instance:MeshInstance3D
+
 func _ready():
 	add_to_group("turrets")
 
-	$RangeArea/CollisionShape3D.shape.radius = turret_range
-	$RangeArea/MeshInstance3D.mesh.radius = turret_range
+	range_collision_shape = $RangeArea/CollisionShape3D
+	range_mesh_instance =$RangeArea/MeshInstance3D
+	range_collision_shape.shape.radius = turret_range
+	range_mesh_instance.mesh.radius = turret_range
 
 	base_stats = {
 		"damage": damage,
@@ -75,12 +80,23 @@ func projectile_fire(delta, target: Node3D = null):
 		proj.speed = get_stat("projectile_speed")
 		proj.damage = get_stat("damage")
 		proj.max_pierce = get_stat("pierce")
-		proj.on_hit_callbacks = []
+		critical_chance = get_stat("critical_chance")
+		proj.hit_callbacks = []
 		
 		for effect in mods:
 			if effect.has_method("on_projectile_spawned"):
 				effect.on_projectile_spawned(self, proj)
+		
+		for effect in mods:
+			if effect.has_method("on_projectile_hit"):
+				proj.hit_callbacks.append(Callable(effect, "on_projectile_hit"))
 
+		critical_damage = get_stat("critical_damage")
+		if randf() < critical_chance:
+			print("Critical hit!")
+			proj.damage *= critical_damage
+			print(proj.damage)
+		
 		proj.transform.origin = Vector3(global_position.x, 1, global_position.z)
 		proj.target_direction = (Vector3(target.global_position.x, 1, target.global_position .z) - Vector3(global_position.x, 1, global_position.z))
 		proj.add_to_group("projectiles")

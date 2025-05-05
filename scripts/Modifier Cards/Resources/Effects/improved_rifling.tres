@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ImprovedRifling" load_steps=2 format=3 uid="uid://ou5r6mr0tq25"]
+
+[ext_resource type="Script" uid="uid://7edj3sahxwyq" path="res://scripts/Modifier Cards/ImprovedRifling.gd" id="1_yk5oi"]
+
+[resource]
+script = ExtResource("1_yk5oi")
+extra_range = 20.0
+higher_crit_chance = 0.25
+mode = 0
+priortiy = 0
+metadata/_custom_type_script = "uid://7edj3sahxwyq"

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dcq140n4dc1bs" path="res://scripts/Turrets/TurretController.gd" id="1_fbjtf"]
 [ext_resource type="PackedScene" uid="uid://buc77xgp0h2o2" path="res://scenes/turrets/projectile.tscn" id="2_lmmwq"]
-[ext_resource type="Resource" uid="uid://b0qe6wjakunnp" path="res://scripts/Modifier Cards/Resources/Cards/BubbleShieldCard.tres" id="3_1v40e"]
+[ext_resource type="Resource" uid="uid://dj4sjhbdhtyu7" path="res://scripts/Modifier Cards/Resources/Cards/ImprovedRifling.tres" id="3_1v40e"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_1v40e"]
 

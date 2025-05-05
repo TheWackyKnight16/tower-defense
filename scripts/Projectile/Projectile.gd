@@ -3,7 +3,7 @@ extends Node3D
 @onready var collision_area = $CollisionArea
 @onready var detection_area = $DetectionArea
 
-var damage:int = 0
+var damage:float = 0
 var speed:float = 0.0
 
 var max_pierce:int = 0
@@ -11,7 +11,7 @@ var pierce:int = 0
 
 var target_direction:Vector3
 
-var on_hit_callbacks:Array = []
+var hit_callbacks:Array = []
 var enemies_in_area:Array[Node3D] = []
 var elapsed_time:float = 0.0
 
@@ -29,7 +29,7 @@ func _process(_delta):
 
 func _on_collision_area_body_entered(body:Node3D):
 	if body.is_in_group("enemies"):
-		for callbacks in on_hit_callbacks:
+		for callbacks in hit_callbacks:
 			callbacks.call(self, body)
 
 		pierce -= 1
