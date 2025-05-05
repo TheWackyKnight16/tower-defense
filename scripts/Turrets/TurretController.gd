@@ -4,7 +4,7 @@ extends Node3D
 @export var turret_head:Node3D = null
 @export var damage:int = 1
 @export var turret_range:float = 20.0
-@export var fire_rate:float = 0.5
+@export var fire_rate:float = 1.0
 @export var turn_speed:float = 1.0
 @export var pierce:int = 1
 @export var critical_chance:float = 0.0
@@ -15,123 +15,129 @@ extends Node3D
 @export var projectile_scene:PackedScene
 
 var base_stats:Dictionary = {
-    "damage": damage,
-    "turret_range": turret_range,
-    "fire_rate": fire_rate,
-    "turn_speed": turn_speed,
-    "pierce": pierce,
-    "critical_chance": critical_chance,
-    "critical_damage": critical_damage,
-    "projectile_speed": projectile_speed
+	"damage": damage,
+	"turret_range": turret_range,
+	"fire_rate": fire_rate,
+	"turn_speed": turn_speed,
+	"pierce": pierce,
+	"critical_chance": critical_chance,
+	"critical_damage": critical_damage,
+	"projectile_speed": projectile_speed
 }
 
+@export_category("Modifiers")
+@export var testing_modifier:Resource
 var mods:Array = []
 
 var turret_firing_timer:float = 0.0
 var enemies_in_range:Array[Node3D]
 
 func _ready():
-    add_to_group("turrets")
+	add_to_group("turrets")
 
-    $RangeArea/CollisionShape3D.shape.radius = turret_range
-    $RangeArea/MeshInstance3D.mesh.radius = turret_range
+	$RangeArea/CollisionShape3D.shape.radius = turret_range
+	$RangeArea/MeshInstance3D.mesh.radius = turret_range
 
-    base_stats = {
-        "damage": damage,
-        "turret_range": turret_range,
-        "fire_rate": fire_rate,
-        "turn_speed": turn_speed,
-        "pierce": pierce,
-        "critical_chance": critical_chance,
-        "critical_damage": critical_damage,
-        "projectile_speed": projectile_speed
-    }
+	base_stats = {
+		"damage": damage,
+		"turret_range": turret_range,
+		"fire_rate": fire_rate,
+		"turn_speed": turn_speed,
+		"pierce": pierce,
+		"critical_chance": critical_chance,
+		"critical_damage": critical_damage,
+		"projectile_speed": projectile_speed
+	}
+
+	if testing_modifier != null:
+		slot_card(testing_modifier)
 
 func _process(_delta):
-    projectile_fire(_delta)
+	projectile_fire(_delta)
 
 func projectile_fire(delta, target: Node3D = null):
-    if target == null:
-        target = find_closest_enemy()
-        if target == null:
-            return
+	if target == null:
+		target = find_closest_enemy()
+		if target == null:
+			return
 
-    # Turn
-    var target_direction = atan2(target.global_position.x - global_position.x, target.global_position.z - global_position.z)
-    turret_head.rotation.y = move_toward(turret_head.rotation.y, target_direction, turn_speed * delta)
+	# Turn
+	var target_direction = atan2(target.global_position.x - global_position.x, target.global_position.z - global_position.z)
+	turret_head.rotation.y = move_toward(turret_head.rotation.y, target_direction, turn_speed * delta)
 
-    if turret_firing_timer < get_stat("fire_rate"):
-        turret_firing_timer += delta
-        return
+	if turret_firing_timer < get_stat("fire_rate"):
+		turret_firing_timer += delta
+		return
 
-    # Fire
-    if abs(turret_head.rotation.y) <= abs(target_direction) + deg_to_rad(5) && abs(turret_head.rotation.y) >= abs(target_direction) - deg_to_rad(5):
-        var proj = projectile_scene.instantiate()
-        proj.speed = get_stat("projectile_speed")
-        proj.damage = get_stat("damage")
-        proj.max_pierce = get_stat("pierce")
-        proj.on_hit_callbacks = []
-        
-        for effect in mods:
-            if effect.has_method("on_projectile_spawned"):
-                effect.on_projectile_spawned(self, proj)
+	# Fire
+	if abs(turret_head.rotation.y) <= abs(target_direction) + deg_to_rad(5) && abs(turret_head.rotation.y) >= abs(target_direction) - deg_to_rad(5):
+		var proj = projectile_scene.instantiate()
+		proj.speed = get_stat("projectile_speed")
+		proj.damage = get_stat("damage")
+		proj.max_pierce = get_stat("pierce")
+		proj.on_hit_callbacks = []
+		
+		for effect in mods:
+			if effect.has_method("on_projectile_spawned"):
+				effect.on_projectile_spawned(self, proj)
 
-        proj.transform.origin = Vector3(global_position.x, 1, global_position.z)
-        proj.target_direction = (Vector3(target.global_position.x, 1, target.global_position .z) - Vector3(global_position.x, 1, global_position.z))
-        proj.add_to_group("projectiles")
-        get_tree().current_scene.add_child(proj)
-        turret_firing_timer = 0.0
+		proj.transform.origin = Vector3(global_position.x, 1, global_position.z)
+		proj.target_direction = (Vector3(target.global_position.x, 1, target.global_position .z) - Vector3(global_position.x, 1, global_position.z))
+		proj.add_to_group("projectiles")
+		get_tree().current_scene.add_child(proj)
+		turret_firing_timer = 0.0
 
 func get_stat(stat_name: String) -> float:
-    var value = base_stats.get(stat_name, 0)
-    for effect in mods:
-        if effect.mode == Effect.MODE.ADDITIVE:
-            value = effect.modify(stat_name, value)
-    
-    for effect in mods:
-        if effect.mode == Effect.MODE.MULTIPLICATIVE:
-            value = effect.modify(stat_name, value)
+	var value = base_stats.get(stat_name, 0)
+	for effect in mods:
+		if effect.mode == Effect.MODE.ADDITIVE:
+			value = effect.modify(stat_name, value)
+	
+	for effect in mods:
+		if effect.mode == Effect.MODE.MULTIPLICATIVE:
+			value = effect.modify(stat_name, value)
 
-    return value
+	return value
 
 func on_projectile_hit(proj, target):
-    for effect in mods:
-        if effect.has_method("on_projectile_hit"):
-            effect.on_projectile_hit(proj, target)
+	for effect in mods:
+		if effect.has_method("on_projectile_hit"):
+			effect.on_projectile_hit(proj, target)
 
 func slot_card(card_res: Resource):
-    for effect in card_res.effects:
-        mods.append(effect)
-        if effect.has_method("on_slot"):
-            effect.on_slot(self)
-        
-    mods.sort_custom(func(a,b): return a.priortiy - b.priortiy)
+	for effect in card_res.effects:
+		mods.append(effect)
+		print(effect)
+		if effect.has_method("on_slot"):
+			effect.on_slot(self)
+		
+	mods.sort_custom(func(a,b): return a.priortiy - b.priortiy)
 
 func unslot_card(card_res: Resource):
-    for effect in card_res.effects:
-        if effect.has_method("on_unslot"):
-            effect.on_unslot(self)
-        mods.erase(effect)
+	for effect in card_res.effects:
+		if effect.has_method("on_unslot"):
+			effect.on_unslot(self)
+		mods.erase(effect)
 
 func find_closest_enemy() -> Node3D:
-    if enemies_in_range.size() == 0:
-        return null
-    
-    enemies_in_range.sort_custom(sort_enemies_by_distance)
-    var closest_enemy = enemies_in_range[0]
-    return closest_enemy
+	if enemies_in_range.size() == 0:
+		return null
+	
+	enemies_in_range.sort_custom(sort_enemies_by_distance)
+	var closest_enemy = enemies_in_range[0]
+	return closest_enemy
 
 func sort_enemies_by_distance(a:Node3D, b:Node3D):
-    return a.global_position.distance_squared_to(global_position) < b.global_position.distance_squared_to(global_position)
+	return a.global_position.distance_squared_to(global_position) < b.global_position.distance_squared_to(global_position)
 
 func _on_range_area_body_entered(body:Node3D):
-    if body.is_in_group("enemies"):
-        enemies_in_range.append(body)
+	if body.is_in_group("enemies"):
+		enemies_in_range.append(body)
 
 func _on_range_area_body_exited(body:Node3D):
-    if body.is_in_group("enemies"):
-        enemies_in_range.erase(body)
+	if body.is_in_group("enemies"):
+		enemies_in_range.erase(body)
 
 func toggle_range_visibility(visibility:bool):
-    $RangeArea/MeshInstance3D.visible = visibility
-    
+	$RangeArea/MeshInstance3D.visible = visibility
+	

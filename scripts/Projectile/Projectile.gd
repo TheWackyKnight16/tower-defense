@@ -3,8 +3,6 @@ extends Node3D
 @onready var collision_area = $CollisionArea
 @onready var detection_area = $DetectionArea
 
-var projectile_data:ProjectileData
-
 var damage:int = 0
 var speed:float = 0.0
 
@@ -39,12 +37,6 @@ func _on_collision_area_body_entered(body:Node3D):
 
 		if pierce <= 0:
 				queue_free()
-
-func explode():
-	for enemy in enemies_in_area:
-		if enemy != null:
-			enemy.take_damage(damage)
-	queue_free()
 
 func _on_detection_area_body_entered(body:Node3D):
 	enemies_in_area.append(body)

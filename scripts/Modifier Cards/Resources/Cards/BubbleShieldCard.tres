@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://b0qe6wjakunnp"]
+
+[ext_resource type="Script" uid="uid://ds4d7e6borbyc" path="res://scripts/Modifier Cards/Card.gd" id="1_mi185"]
+[ext_resource type="Resource" uid="uid://b2v3fko6m12p0" path="res://scripts/Modifier Cards/Resources/Effects/bubble_shield.tres" id="1_qtdsv"]
+
+[resource]
+script = ExtResource("1_mi185")
+name = "Bubble Shield"
+description = "Surround the turret in a bubble shield"
+effects = Array[Resource]([ExtResource("1_qtdsv")])
+metadata/_custom_type_script = "uid://ds4d7e6borbyc"

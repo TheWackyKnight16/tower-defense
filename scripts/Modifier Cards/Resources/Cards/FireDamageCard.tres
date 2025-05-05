@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://boj5erdx2lppf"]
+
+[ext_resource type="Resource" uid="uid://dv11dw5mv7ems" path="res://scripts/Modifier Cards/Resources/Effects/fire_damage.tres" id="1_7fqee"]
+[ext_resource type="Script" uid="uid://ds4d7e6borbyc" path="res://scripts/Modifier Cards/Card.gd" id="1_muk2r"]
+
+[resource]
+script = ExtResource("1_muk2r")
+name = "Flaming Bullets"
+description = "Adds fire damage to tower, and chance burn"
+effects = Array[Resource]([ExtResource("1_7fqee")])
+metadata/_custom_type_script = "uid://ds4d7e6borbyc"

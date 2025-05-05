@@ -57,6 +57,12 @@ func _process(_delta):
 
 		toggle_turret_placement_mode()
 
+	if Input.is_action_just_pressed("right_click"):
+		if turret_highlight != null:
+			turret_highlight.queue_free()
+			turret_highlight = null
+		turret_placement_mode = false
+
 	object_selection()
 
 func object_selection():

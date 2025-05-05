@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BubbleShield" load_steps=3 format=3 uid="uid://b2v3fko6m12p0"]
+
+[ext_resource type="Script" uid="uid://blv82v5cjdmar" path="res://scripts/Modifier Cards/BubbleShield.gd" id="1_hyftd"]
+[ext_resource type="PackedScene" uid="uid://c2li4kt5cal04" path="res://scripts/Modifier Cards/Modifier Objects/BubbleShieldScene.tscn" id="1_ifliw"]
+
+[resource]
+script = ExtResource("1_hyftd")
+bubble_shield_scene = ExtResource("1_ifliw")
+max_health = 10
+radius = 4.0
+regeneration_time = 10.0
+mode = 0
+priortiy = 0
+metadata/_custom_type_script = "uid://blv82v5cjdmar"

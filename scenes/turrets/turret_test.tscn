@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://j1l5dkxn3xtb"]
+[gd_scene load_steps=10 format=3 uid="uid://j1l5dkxn3xtb"]
 
 [ext_resource type="Script" uid="uid://dcq140n4dc1bs" path="res://scripts/Turrets/TurretController.gd" id="1_fbjtf"]
 [ext_resource type="PackedScene" uid="uid://buc77xgp0h2o2" path="res://scenes/turrets/projectile.tscn" id="2_lmmwq"]
+[ext_resource type="Resource" uid="uid://b0qe6wjakunnp" path="res://scripts/Modifier Cards/Resources/Cards/BubbleShieldCard.tres" id="3_1v40e"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_1v40e"]
 
@@ -23,10 +24,10 @@ radius = 20.0
 
 [node name="TurretTest" type="Node3D" node_paths=PackedStringArray("turret_head")]
 script = ExtResource("1_fbjtf")
-turret_range = 40.0
 turret_head = NodePath("TurretHead")
+turret_range = 40.0
 projectile_scene = ExtResource("2_lmmwq")
-base_stats = {}
+testing_modifier = ExtResource("3_1v40e")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
