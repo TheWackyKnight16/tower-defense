@@ -33,6 +33,7 @@ var mods:Array = []
 
 var turret_firing_timer:float = 0.0
 var enemies_in_range:Array[Node3D]
+var distance_to_target:float = 0.0
 
 var range_collision_shape:CollisionShape3D
 var range_mesh_instance:MeshInstance3D
@@ -67,6 +68,8 @@ func projectile_fire(delta, target: Node3D = null):
 		target = find_closest_enemy()
 		if target == null:
 			return
+
+	distance_to_target = global_position.distance_squared_to(target.global_position)
 
 	# Turn
 	var target_direction = atan2(target.global_position.x - global_position.x, target.global_position.z - global_position.z)

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PointBlank" load_steps=2 format=3 uid="uid://bbth78vdqq555"]
+
+[ext_resource type="Script" uid="uid://blu754c1ro8r5" path="res://scripts/Modifier Cards/PointBlank.gd" id="1_rwlkj"]
+
+[resource]
+script = ExtResource("1_rwlkj")
+max_range_damage = 0.5
+min_range_damage = 2.0
+mode = 0
+priortiy = 0
+metadata/_custom_type_script = "uid://blu754c1ro8r5"
