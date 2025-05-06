@@ -26,7 +26,7 @@ func _process(delta):
             cur_health = max_health
             collision_shape.disabled = false
 
-func take_damage(damage):
+func take_damage(damage, _source = null):
     cur_health -= damage
 
     if cur_health <= 0:

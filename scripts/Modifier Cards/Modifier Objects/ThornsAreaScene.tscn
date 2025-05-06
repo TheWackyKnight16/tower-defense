@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmuihkn64yixd"]
+
+[ext_resource type="Script" uid="uid://byfqg2qyo3npk" path="res://scripts/Modifier Cards/Modifier Objects/thorns_area_scene.gd" id="1_elein"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_m23cx"]
+radius = 1.5
+
+[node name="ThornsAreaScene" type="Node3D"]
+script = ExtResource("1_elein")
+
+[node name="Area3D" type="Area3D" parent="." groups=["turrets"]]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_m23cx")
