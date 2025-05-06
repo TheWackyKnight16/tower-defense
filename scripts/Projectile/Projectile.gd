@@ -24,6 +24,7 @@ func _ready():
 		return
 	
 	collision_area.get_child(0).shape.radius = size
+	get_node("MeshInstance3D").mesh.radius = size
 	detection_area.get_child(0).shape.radius = detection_range
 
 func _process(_delta):

@@ -6,13 +6,16 @@ extends Node3D
 @export var turret_range:float = 20.0
 @export var fire_rate:float = 1.0
 @export var turn_speed:float = 1.0
-@export var pierce:int = 1
 @export var critical_chance:float = 0.0
 @export var critical_damage:float = 1.5
-@export var projectile_speed:float = 100.0
 
 @export_category("Projectile")
 @export var projectile_scene:PackedScene
+@export var pierce:int = 1
+@export var projectile_speed:float = 100.0
+var pellets:int = 1
+var spread:float = 0
+var projectile_size:float = 0.5
 
 var base_stats:Dictionary = {
 	"damage": 0,
@@ -22,7 +25,10 @@ var base_stats:Dictionary = {
 	"pierce": 0,
 	"critical_chance": 0,
 	"critical_damage": 0,
-	"projectile_speed": 0
+	"projectile_speed": 0,
+	"pellets": 0,
+	"spread": 0,
+	"prjectile_size": 0
 }
 
 var final_stats:Dictionary = {}
@@ -54,7 +60,10 @@ func _ready():
 		"pierce": pierce,
 		"critical_chance": critical_chance,
 		"critical_damage": critical_damage,
-		"projectile_speed": projectile_speed
+		"projectile_speed": projectile_speed,
+		"pellets": pellets,
+		"spread": spread,
+		"projectile_size": projectile_size
 	}
 
 	if testing_modifier != null:
@@ -79,33 +88,36 @@ func projectile_fire(delta, target: Node3D = null):
 		turret_firing_timer += delta
 		return
 
-	# Fire
-	if abs(turret_head.rotation.y) <= abs(target_direction) + deg_to_rad(5) && abs(turret_head.rotation.y) >= abs(target_direction) - deg_to_rad(5):
-		var proj = projectile_scene.instantiate()
-		proj.speed = final_stats["projectile_speed"]
-		proj.damage = final_stats["damage"]
-		proj.max_pierce = final_stats["pierce"]
-		proj.pierce = proj.max_pierce
-		critical_chance = final_stats["critical_chance"]
-		proj.hit_callbacks = []
-		
-		for effect in mods:
-			if effect.has_method("on_projectile_spawned"):
-				effect.on_projectile_spawned(self, proj)
-		
-		for effect in mods:
-			if effect.has_method("on_projectile_hit"):
-				proj.hit_callbacks.append(Callable(effect, "on_projectile_hit"))
+	for i in range(final_stats["pellets"]):
+		var random_spread = randf_range(-final_stats["spread"], final_stats["spread"])
+		# Fire
+		if abs(turret_head.rotation.y) <= abs(target_direction) + deg_to_rad(5) && abs(turret_head.rotation.y) >= abs(target_direction) - deg_to_rad(5):
+			var proj = projectile_scene.instantiate()
+			proj.speed = final_stats["projectile_speed"]
+			proj.damage = final_stats["damage"]
+			proj.max_pierce = final_stats["pierce"]
+			proj.pierce = proj.max_pierce
+			critical_chance = final_stats["critical_chance"]
+			proj.hit_callbacks = []
+			
+			for effect in mods:
+				if effect.has_method("on_projectile_spawned"):
+					effect.on_projectile_spawned(self, proj)
+			
+			for effect in mods:
+				if effect.has_method("on_projectile_hit"):
+					proj.hit_callbacks.append(Callable(effect, "on_projectile_hit"))
 
-		critical_damage = get_stat("critical_damage")
-		if randf() < critical_chance:
-			proj.damage *= critical_damage
-		
-		proj.transform.origin = Vector3(global_position.x, 1, global_position.z)
-		proj.target_direction = (Vector3(target.global_position.x, 1, target.global_position .z) - Vector3(global_position.x, 1, global_position.z))
-		proj.add_to_group("projectiles")
-		get_tree().current_scene.add_child(proj)
-		turret_firing_timer = 0.0
+			critical_damage = final_stats["critical_damage"]
+			if randf() < critical_chance:
+				proj.damage *= critical_damage
+			
+			proj.size = final_stats["projectile_size"]
+			proj.transform.origin = Vector3(global_position.x, 1, global_position.z)
+			proj.target_direction = (Vector3(target.global_position.x + random_spread, 1, target.global_position .z + random_spread) - Vector3(global_position.x, 1, global_position.z))
+			proj.add_to_group("projectiles")
+			get_tree().current_scene.add_child(proj)
+			turret_firing_timer = 0.0
 
 func get_stat(stat_name: String) -> float:
 	var value = base_stats.get(stat_name, 0)
@@ -122,7 +134,6 @@ func get_stat(stat_name: String) -> float:
 func slot_card(card_res: Resource):
 	for effect in card_res.effects:
 		mods.append(effect)
-		print(effect)
 		if effect.has_method("on_slot"):
 			effect.on_slot(self)
 		
