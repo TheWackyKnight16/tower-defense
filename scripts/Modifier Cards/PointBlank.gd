@@ -14,5 +14,3 @@ func on_projectile_spawned(_turret, proj):
     bonus_damage = lerpf(max_range_damage, min_range_damage, curve_ratio)
 
     proj.damage *= bonus_damage
-    print("Damage: ", proj.damage)
-    print("Ratio: ", ratio)
