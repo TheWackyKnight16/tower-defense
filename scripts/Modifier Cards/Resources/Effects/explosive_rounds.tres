@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ExplosiveRounds" load_steps=2 format=3 uid="uid://prxmsqo8rx6t"]
 
-[ext_resource type="Script" uid="uid://con5j5oxt2wkp" path="res://scripts/Modifier Cards/ExplosiveRounds.gd" id="1_fb1b8"]
+[ext_resource type="Script" uid="uid://con5j5oxt2wkp" path="res://scripts/modifier cards/ExplosiveRounds.gd" id="1_fb1b8"]
 
 [resource]
 script = ExtResource("1_fb1b8")

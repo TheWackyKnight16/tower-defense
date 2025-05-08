@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="PiercingShot" load_steps=2 format=3 uid="uid://dpd20katclp5"]
 
-[ext_resource type="Script" uid="uid://xc7d4vks65er" path="res://scripts/Modifier Cards/PiercingShot.gd" id="1_qk3ew"]
+[ext_resource type="Script" uid="uid://xc7d4vks65er" path="res://scripts/modifier cards/PiercingShot.gd" id="1_qk3ew"]
 
 [resource]
 script = ExtResource("1_qk3ew")

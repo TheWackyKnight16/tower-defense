@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="FireDamage" load_steps=2 format=3 uid="uid://dv11dw5mv7ems"]
 
-[ext_resource type="Script" uid="uid://chulyon2lymyq" path="res://scripts/Modifier Cards/FireDamage.gd" id="1_e5m1m"]
+[ext_resource type="Script" uid="uid://chulyon2lymyq" path="res://scripts/modifier cards/FireDamage.gd" id="1_e5m1m"]
 
 [resource]
 script = ExtResource("1_e5m1m")

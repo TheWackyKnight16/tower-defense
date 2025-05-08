@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://1k6xl26sa6h7"]
+
+[ext_resource type="Script" uid="uid://ds4d7e6borbyc" path="res://scripts/modifier cards/Card.gd" id="1_xcnhn"]
+[ext_resource type="Resource" uid="uid://b3hxh4lfed5t3" path="res://scripts/turrets/resources/autocannon_turret.tres" id="2_del33"]
+
+[resource]
+script = ExtResource("1_xcnhn")
+name = "Autocannon"
+description = "shoots like an autocannon"
+turret_config = ExtResource("2_del33")
+effects = Array[Resource]([])
+metadata/_custom_type_script = "uid://ds4d7e6borbyc"

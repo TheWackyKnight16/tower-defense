@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://j1l5dkxn3xtb"]
+[gd_scene load_steps=9 format=3 uid="uid://j1l5dkxn3xtb"]
 
 [ext_resource type="Script" uid="uid://dcq140n4dc1bs" path="res://scripts/turrets/TurretController.gd" id="1_fbjtf"]
-[ext_resource type="PackedScene" uid="uid://buc77xgp0h2o2" path="res://scenes/turrets/projectile.tscn" id="2_lmmwq"]
-[ext_resource type="Resource" uid="uid://06witpe6nvom" path="res://scripts/turrets/resources/cards/ShotgunTurretCard.tres" id="3_1v40e"]
+[ext_resource type="Resource" uid="uid://cf6humcvtum6w" path="res://scripts/turrets/resources/base_turret.tres" id="2_1v40e"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_1v40e"]
 
@@ -25,9 +24,7 @@ radius = 20.0
 [node name="TurretTest" type="Node3D" node_paths=PackedStringArray("turret_head")]
 script = ExtResource("1_fbjtf")
 turret_head = NodePath("TurretHead")
-turret_range = 40.0
-projectile_scene = ExtResource("2_lmmwq")
-testing_modifier = ExtResource("3_1v40e")
+config = ExtResource("2_1v40e")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -57,6 +54,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="TurretHead"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.3)
 mesh = SubResource("CapsuleMesh_1v40e")
+
+[node name="Barrels" type="Node3D" parent="TurretHead"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+
+[node name="Marker3D" type="Marker3D" parent="TurretHead/Barrels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 1)
 
 [connection signal="area_entered" from="RangeArea" to="." method="_on_range_area_area_entered"]
 [connection signal="area_exited" from="RangeArea" to="." method="_on_range_area_area_exited"]

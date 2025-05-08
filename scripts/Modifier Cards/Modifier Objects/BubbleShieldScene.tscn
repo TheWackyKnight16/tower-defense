@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c2li4kt5cal04"]
 
-[ext_resource type="Script" uid="uid://5w7eb0nrvem3" path="res://scripts/Modifier Cards/Modifier Objects/bubble_shield_scene.gd" id="1_337op"]
+[ext_resource type="Script" uid="uid://5w7eb0nrvem3" path="res://scripts/modifier cards/Modifier Objects/bubble_shield_scene.gd" id="1_337op"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8uv3b"]
 transparency = 1

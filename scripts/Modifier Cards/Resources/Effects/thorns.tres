@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Thorns" load_steps=3 format=3 uid="uid://tt1da7jskehl"]
 
-[ext_resource type="Script" uid="uid://d3r6sblokktfd" path="res://scripts/Modifier Cards/Thorns.gd" id="1_uvh5c"]
-[ext_resource type="PackedScene" uid="uid://dmuihkn64yixd" path="res://scripts/Modifier Cards/Modifier Objects/ThornsAreaScene.tscn" id="2_omj7b"]
+[ext_resource type="Script" uid="uid://d3r6sblokktfd" path="res://scripts/modifier cards/Thorns.gd" id="1_uvh5c"]
+[ext_resource type="PackedScene" uid="uid://dmuihkn64yixd" path="res://scripts/modifier cards/Modifier Objects/ThornsAreaScene.tscn" id="2_omj7b"]
 
 [resource]
 script = ExtResource("1_uvh5c")

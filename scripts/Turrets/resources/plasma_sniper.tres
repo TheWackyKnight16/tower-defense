@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="TurretConfig" load_steps=3 format=3 uid="uid://bm40qj2f6uqfm"]
+
+[ext_resource type="Script" uid="uid://ckqjxuvaprx2i" path="res://scripts/turrets/TurretConfig.gd" id="1_5gvqk"]
+[ext_resource type="PackedScene" uid="uid://buc77xgp0h2o2" path="res://scenes/turrets/projectile.tscn" id="1_52eid"]
+
+[resource]
+script = ExtResource("1_5gvqk")
+damage = 1.0
+turret_range = 60.0
+fire_rate = 2.0
+turn_speed = 0.5
+critical_chance = 0.0
+critical_damage = 1.5
+projectile_scene = ExtResource("1_52eid")
+pierce = 1
+projectile_speed = 400.0
+projectile_size = 0.5
+pellets = 1
+spread = 0.0
+metadata/_custom_type_script = "uid://ckqjxuvaprx2i"

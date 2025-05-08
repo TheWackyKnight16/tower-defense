@@ -1,21 +1,8 @@
 extends Node3D
 
-@export_category("Turret")
-@export var turret_head:Node3D = null
-@export var damage:float = 1.0
-@export var turret_range:float = 20.0
-@export var fire_rate:float = 1.0
-@export var turn_speed:float = 1.0
-@export var critical_chance:float = 0.0
-@export var critical_damage:float = 1.5
-
-@export_category("Projectile")
-@export var projectile_scene:PackedScene
-@export var pierce:int = 1
-@export var projectile_speed:float = 100.0
-var pellets:int = 1
-var spread:float = 0
-var projectile_size:float = 0.5
+@export_category("Turret Config")
+@export var turret_head:Node3D
+@export var config: Resource
 
 var base_stats:Dictionary = {
 	"damage": 0,
@@ -40,6 +27,8 @@ var mods:Array = []
 var turret_firing_timer:float = 0.0
 var enemies_in_range:Array[Node3D]
 var distance_to_target:float = 0.0
+var barrels:Array
+var shot_count:int = 0
 
 var range_collision_shape:CollisionShape3D
 var range_mesh_instance:MeshInstance3D
@@ -49,25 +38,28 @@ func _ready():
 
 	range_collision_shape = $RangeArea/CollisionShape3D
 	range_mesh_instance =$RangeArea/MeshInstance3D
-	range_collision_shape.shape.radius = turret_range
-	range_mesh_instance.mesh.radius = turret_range
 
-	base_stats = {
-		"damage": damage,
-		"turret_range": turret_range,
-		"fire_rate": fire_rate,
-		"turn_speed": turn_speed,
-		"pierce": pierce,
-		"critical_chance": critical_chance,
-		"critical_damage": critical_damage,
-		"projectile_speed": projectile_speed,
-		"pellets": pellets,
-		"spread": spread,
-		"projectile_size": projectile_size
-	}
+	for child in $TurretHead/Barrels.get_children():
+		barrels.append(child)
+
+	if config != null:
+		base_stats = {
+			"damage": config.damage,
+			"turret_range": config.turret_range,
+			"fire_rate": config.fire_rate,
+			"turn_speed": config.turn_speed,
+			"pierce": config.pierce,
+			"critical_chance": config.critical_chance,
+			"critical_damage": config.critical_damage,
+			"projectile_speed": config.projectile_speed,
+			"pellets": config.pellets,
+			"spread": config.spread,
+			"projectile_size": config.projectile_size
+		}
 
 	if testing_modifier != null:
 		slot_card(testing_modifier)
+	update_final_stats()
 
 func _process(_delta):
 	projectile_fire(_delta)
@@ -92,12 +84,12 @@ func projectile_fire(delta, target: Node3D = null):
 		var random_spread = randf_range(-final_stats["spread"], final_stats["spread"])
 		# Fire
 		if abs(turret_head.rotation.y) <= abs(target_direction) + deg_to_rad(5) && abs(turret_head.rotation.y) >= abs(target_direction) - deg_to_rad(5):
-			var proj = projectile_scene.instantiate()
+			var proj = config.projectile_scene.instantiate()
 			proj.speed = final_stats["projectile_speed"]
 			proj.damage = final_stats["damage"]
 			proj.max_pierce = final_stats["pierce"]
 			proj.pierce = proj.max_pierce
-			critical_chance = final_stats["critical_chance"]
+			config.critical_chance = final_stats["critical_chance"]
 			proj.hit_callbacks = []
 			
 			for effect in mods:
@@ -108,13 +100,22 @@ func projectile_fire(delta, target: Node3D = null):
 				if effect.has_method("on_projectile_hit"):
 					proj.hit_callbacks.append(Callable(effect, "on_projectile_hit"))
 
-			critical_damage = final_stats["critical_damage"]
-			if randf() < critical_chance:
-				proj.damage *= critical_damage
+			config.critical_damage = final_stats["critical_damage"]
+			if randf() < config.critical_chance:
+				proj.damage *= config.critical_damage
 			
 			proj.size = final_stats["projectile_size"]
-			proj.transform.origin = Vector3(global_position.x, 1, global_position.z)
-			proj.target_direction = (Vector3(target.global_position.x + random_spread, 1, target.global_position .z + random_spread) - Vector3(global_position.x, 1, global_position.z))
+			if barrels.size() > 0:
+				var barrel = barrels[shot_count % barrels.size()]
+				var barrel_position = barrel.global_position
+				proj.transform.origin = Vector3(barrel_position.x, 1, barrel_position.z)
+				proj.target_direction = (Vector3(target.global_position.x + random_spread, 1, target.global_position .z + random_spread) - Vector3(barrel_position.x, 1, barrel_position.z))
+				shot_count += 1
+				if shot_count >= barrels.size():
+					shot_count = 0
+			else:
+				proj.transform.origin = Vector3(global_position.x, 1, global_position.z)
+				proj.target_direction = (Vector3(target.global_position.x + random_spread, 1, target.global_position .z + random_spread) - Vector3(global_position.x, 1, global_position.z))
 			proj.add_to_group("projectiles")
 			get_tree().current_scene.add_child(proj)
 			turret_firing_timer = 0.0
@@ -132,6 +133,10 @@ func get_stat(stat_name: String) -> float:
 	return value
 
 func slot_card(card_res: Resource):
+	if card_res.turret_config != null:
+		config = card_res.turret_config
+		update_base_stats()
+
 	for effect in card_res.effects:
 		mods.append(effect)
 		if effect.has_method("on_slot"):
@@ -139,6 +144,33 @@ func slot_card(card_res: Resource):
 		
 	mods.sort_custom(func(a,b): return a.priortiy - b.priortiy)
 
+	update_final_stats()
+
+func unslot_card(card_res: Resource):
+	for effect in card_res.effects:
+		if effect.has_method("on_unslot"):
+			effect.on_unslot(self)
+		mods.erase(effect)
+
+func update_base_stats():
+	if config == null:
+		return
+	
+	base_stats = {
+		"damage": config.damage,
+		"turret_range": config.turret_range,
+		"fire_rate": config.fire_rate,
+		"turn_speed": config.turn_speed,
+		"pierce": config.pierce,
+		"critical_chance": config.critical_chance,
+		"critical_damage": config.critical_damage,
+		"projectile_speed": config.projectile_speed,
+		"pellets": config.pellets,
+		"spread": config.spread,
+		"projectile_size": config.projectile_size
+	}
+
+func update_final_stats():
 	final_stats = base_stats.duplicate()
 	for effect in mods:
 		for stat_name in final_stats.keys():
@@ -147,13 +179,9 @@ func slot_card(card_res: Resource):
 			if effect.mode == Effect.MODE.MULTIPLICATIVE:
 				final_stats[stat_name] = effect.modify(stat_name, final_stats[stat_name])
 	
+	range_collision_shape.shape.radius = config.turret_range
+	range_mesh_instance.mesh.radius = config.turret_range
 	print(final_stats)
-
-func unslot_card(card_res: Resource):
-	for effect in card_res.effects:
-		if effect.has_method("on_unslot"):
-			effect.on_unslot(self)
-		mods.erase(effect)
 
 func find_closest_enemy() -> Node3D:
 	if enemies_in_range.size() == 0:

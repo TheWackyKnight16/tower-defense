@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="PointBlank" load_steps=2 format=3 uid="uid://bbth78vdqq555"]
 
-[ext_resource type="Script" uid="uid://blu754c1ro8r5" path="res://scripts/Modifier Cards/PointBlank.gd" id="1_rwlkj"]
+[ext_resource type="Script" uid="uid://blu754c1ro8r5" path="res://scripts/modifier cards/PointBlank.gd" id="1_rwlkj"]
 
 [resource]
 script = ExtResource("1_rwlkj")

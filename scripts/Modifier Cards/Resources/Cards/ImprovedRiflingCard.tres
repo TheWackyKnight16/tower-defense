@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://dj4sjhbdhtyu7"]
 
-[ext_resource type="Script" uid="uid://ds4d7e6borbyc" path="res://scripts/Modifier Cards/Card.gd" id="1_hsk35"]
-[ext_resource type="Resource" uid="uid://ou5r6mr0tq25" path="res://scripts/Modifier Cards/Resources/Effects/improved_rifling.tres" id="1_ml2ta"]
+[ext_resource type="Script" uid="uid://ds4d7e6borbyc" path="res://scripts/modifier cards/Card.gd" id="1_hsk35"]
+[ext_resource type="Resource" uid="uid://ou5r6mr0tq25" path="res://scripts/modifier cards/Resources/Effects/improved_rifling.tres" id="1_ml2ta"]
 
 [resource]
 script = ExtResource("1_hsk35")

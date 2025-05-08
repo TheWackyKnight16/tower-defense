@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://bgs7hqtqqwk42"]
 
-[ext_resource type="Script" uid="uid://ds4d7e6borbyc" path="res://scripts/Modifier Cards/Card.gd" id="1_ivrri"]
-[ext_resource type="Resource" uid="uid://ci2pmk01lug4g" path="res://scripts/Modifier Cards/Resources/Effects/super_charged_shot.tres" id="1_wuq72"]
+[ext_resource type="Script" uid="uid://ds4d7e6borbyc" path="res://scripts/modifier cards/Card.gd" id="1_ivrri"]
+[ext_resource type="Resource" uid="uid://ci2pmk01lug4g" path="res://scripts/modifier cards/Resources/Effects/super_charged_shot.tres" id="1_wuq72"]
 
 [resource]
 script = ExtResource("1_ivrri")

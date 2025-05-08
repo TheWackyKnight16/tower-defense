@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ImprovedRifling" load_steps=2 format=3 uid="uid://ou5r6mr0tq25"]
 
-[ext_resource type="Script" uid="uid://7edj3sahxwyq" path="res://scripts/Modifier Cards/ImprovedRifling.gd" id="1_yk5oi"]
+[ext_resource type="Script" uid="uid://7edj3sahxwyq" path="res://scripts/modifier cards/ImprovedRifling.gd" id="1_yk5oi"]
 
 [resource]
 script = ExtResource("1_yk5oi")
