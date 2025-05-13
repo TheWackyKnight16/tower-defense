@@ -1,7 +1,7 @@
-extends Node3D
+class_name Projectile extends Node3D
 
-@onready var collision_area = $CollisionArea
-@onready var detection_area = $DetectionArea
+var collision_area = null
+var detection_area = null
 
 var damage:float = 0
 var speed:float = 0.0
@@ -14,6 +14,8 @@ var detection_range:float = 5
 
 var target_direction:Vector3
 
+var missile_mode: bool = false
+
 var hit_callbacks:Array = []
 var enemies_in_area:Array[Node3D] = []
 var elapsed_time:float = 0.0
@@ -22,10 +24,18 @@ func _ready():
 	if target_direction == null:
 		queue_free()
 		return
-	
-	collision_area.get_child(0).shape.radius = size
+
+	if get_node("CollisionArea"):
+		collision_area = $CollisionArea
+	if collision_area != null:
+		collision_area.get_child(0).shape.radius = size
+
 	get_node("MeshInstance3D").mesh.radius = size
-	detection_area.get_child(0).shape.radius = detection_range
+	
+	if get_node("DetectionArea"):
+		detection_area = $DetectionArea
+	if detection_area != null:
+		detection_area.get_child(0).shape.radius = detection_range
 
 func _process(_delta):
 	global_position += target_direction.normalized() * speed * _delta

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4hf8hycxecrs"]
+
+[ext_resource type="Script" uid="uid://dcklim6d48fjm" path="res://scripts/projectile/MissileProjectile.gd" id="1_lm8aa"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_6aapk"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_q3m7n"]
+
+[node name="MissileProjectile" type="Node3D"]
+script = ExtResource("1_lm8aa")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_6aapk")
+
+[node name="DetectionArea" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
+shape = SubResource("SphereShape3D_q3m7n")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

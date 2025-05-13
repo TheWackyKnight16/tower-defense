@@ -1,11 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://cio58rnfx4e1a"]
+[gd_scene load_steps=14 format=3 uid="uid://cio58rnfx4e1a"]
 
 [ext_resource type="Material" uid="uid://hqs5i2lcn62v" path="res://assets/shaders/realistic_crt_shader.tres" id="2_0wfyh"]
 [ext_resource type="LabelSettings" uid="uid://b6sjq7hdpd7o6" path="res://assets/fonts/main.tres" id="2_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://cxy7i8v7d5vl7" path="res://assets/sprites/monitor-cursor.png" id="2_tbgi4"]
-[ext_resource type="Texture2D" uid="uid://chm465ha72rcv" path="res://assets/sprites/temp-hud-corners.png" id="2_tefeu"]
-[ext_resource type="PackedScene" uid="uid://ydvdelwtvmgv" path="res://assets/temp models/temp_terminal.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://bh504anwv7h73" path="res://scenes/wave_manager.tscn" id="4_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://cubpsfh71vuj5" path="res://scenes/temp scenes/temp_terminal.tscn" id="8_85g3d"]
 [ext_resource type="PackedScene" uid="uid://0v5sd78clnep" path="res://scenes/enemy.tscn" id="8_tipki"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sgp6g"]
@@ -57,23 +56,24 @@ shape = SubResource("BoxShape3D_sugp2")
 mesh = SubResource("BoxMesh_tbgi4")
 
 [node name="Main" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.227755, -19.3245, 115.189)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.307, -19.324, 115.538)
 current = true
+fov = 70.0
 size = 9.2112
 
-[node name="TempTerminal2" parent="." node_paths=PackedStringArray("screen_sprite", "sub_viewport") instance=ExtResource("4_jyhfs")]
-transform = Transform3D(1.18, 0, 0, 0, 1.1783, 0.063381, 0, -0.063381, 1.1783, -2.32759, -19.5566, 109.203)
+[node name="TempTerminal" parent="." node_paths=PackedStringArray("screen_sprite", "sub_viewport") instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0699411, -17.7521, 109.203)
 screen_sprite = NodePath("Sprite3D")
 sub_viewport = NodePath("../TerminalScreen")
 
-[node name="Sprite3D" type="Sprite3D" parent="TempTerminal2"]
-transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 1.00117, 0.494835, 0.77473)
+[node name="Sprite3D" type="Sprite3D" parent="TempTerminal"]
+transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0.307454, -0.291809, 0.0204697)
 transparent = false
 double_sided = false
 texture = SubResource("ViewportTexture_0wfyh")
 
 [node name="TerminalScreen" type="SubViewport" parent="."]
-size = Vector2i(727, 457)
+size = Vector2i(867, 487)
 
 [node name="Camera3D" type="Camera3D" parent="TerminalScreen"]
 transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 81.966, 0)
@@ -114,18 +114,11 @@ layout_mode = 2
 text = "dmg"
 label_settings = ExtResource("2_o6xl0")
 
-[node name="TextureRect" type="TextureRect" parent="TerminalScreen/CRTShader"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_tefeu")
-
 [node name="Cursor" type="TextureRect" parent="TerminalScreen/CRTShader"]
 offset_right = 32.0
 offset_bottom = 32.0
 texture = ExtResource("2_tbgi4")
+stretch_mode = 2
 
 [node name="ColorRect2" type="ColorRect" parent="TerminalScreen/CRTShader"]
 material = ExtResource("2_0wfyh")

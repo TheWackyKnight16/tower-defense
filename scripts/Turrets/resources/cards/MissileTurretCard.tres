@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Card" load_steps=5 format=3 uid="uid://b4ok7pg5rn0kl"]
+
+[ext_resource type="Script" uid="uid://ds4d7e6borbyc" path="res://scripts/modifier cards/Card.gd" id="1_7b8hv"]
+[ext_resource type="Resource" uid="uid://cvyc5pq81jy3n" path="res://scripts/turrets/resources/missile_turret_effect.tres" id="1_xhpod"]
+[ext_resource type="Resource" uid="uid://bdbog4md4d4iw" path="res://scripts/turrets/resources/missile_turret_explosive_effect.tres" id="2_lj275"]
+[ext_resource type="Resource" uid="uid://p4pdad3ftpft" path="res://scripts/turrets/resources/missile_turret.tres" id="3_lj275"]
+
+[resource]
+script = ExtResource("1_7b8hv")
+name = "Missile Turret"
+description = "Shoots missiles or somthin"
+turret_config = ExtResource("3_lj275")
+effects = Array[Resource]([ExtResource("1_xhpod"), ExtResource("2_lj275")])
+metadata/_custom_type_script = "uid://ds4d7e6borbyc"

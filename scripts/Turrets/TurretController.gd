@@ -24,11 +24,13 @@ var final_stats:Dictionary = {}
 @export var testing_modifier:Resource
 var mods:Array = []
 
+var target: Node3D = null
 var turret_firing_timer:float = 0.0
 var enemies_in_range:Array[Node3D]
 var distance_to_target:float = 0.0
 var barrels:Array
-var shot_count:int = 0
+var barrel_shot_count:int = 0
+var shots_fired:int = 0
 
 var range_collision_shape:CollisionShape3D
 var range_mesh_instance:MeshInstance3D
@@ -64,7 +66,7 @@ func _ready():
 func _process(_delta):
 	projectile_fire(_delta)
 
-func projectile_fire(delta, target: Node3D = null):
+func projectile_fire(delta):
 	if target == null:
 		target = find_closest_enemy()
 		if target == null:
@@ -106,19 +108,20 @@ func projectile_fire(delta, target: Node3D = null):
 			
 			proj.size = final_stats["projectile_size"]
 			if barrels.size() > 0:
-				var barrel = barrels[shot_count % barrels.size()]
+				var barrel = barrels[barrel_shot_count % barrels.size()]
 				var barrel_position = barrel.global_position
 				proj.transform.origin = Vector3(barrel_position.x, 1, barrel_position.z)
 				proj.target_direction = (Vector3(target.global_position.x + random_spread, 1, target.global_position .z + random_spread) - Vector3(barrel_position.x, 1, barrel_position.z))
-				shot_count += 1
-				if shot_count >= barrels.size():
-					shot_count = 0
+				barrel_shot_count += 1
+				if barrel_shot_count >= barrels.size():
+					barrel_shot_count = 0
 			else:
 				proj.transform.origin = Vector3(global_position.x, 1, global_position.z)
 				proj.target_direction = (Vector3(target.global_position.x + random_spread, 1, target.global_position .z + random_spread) - Vector3(global_position.x, 1, global_position.z))
 			proj.add_to_group("projectiles")
 			get_tree().current_scene.add_child(proj)
-			turret_firing_timer = 0.0
+			if turret_firing_timer > 0.0:
+				turret_firing_timer = 0.0
 
 func get_stat(stat_name: String) -> float:
 	var value = base_stats.get(stat_name, 0)

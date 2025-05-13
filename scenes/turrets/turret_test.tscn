@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://j1l5dkxn3xtb"]
 
 [ext_resource type="Script" uid="uid://dcq140n4dc1bs" path="res://scripts/turrets/TurretController.gd" id="1_fbjtf"]
-[ext_resource type="Resource" uid="uid://cf6humcvtum6w" path="res://scripts/turrets/resources/base_turret.tres" id="2_1v40e"]
+[ext_resource type="Resource" uid="uid://b4ok7pg5rn0kl" path="res://scripts/turrets/resources/cards/MissileTurretCard.tres" id="2_qj1fk"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_1v40e"]
 
@@ -24,7 +24,7 @@ radius = 20.0
 [node name="TurretTest" type="Node3D" node_paths=PackedStringArray("turret_head")]
 script = ExtResource("1_fbjtf")
 turret_head = NodePath("TurretHead")
-config = ExtResource("2_1v40e")
+testing_modifier = ExtResource("2_qj1fk")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

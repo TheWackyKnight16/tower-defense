@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ExplosiveRounds" load_steps=2 format=3 uid="uid://bdbog4md4d4iw"]
+
+[ext_resource type="Script" uid="uid://con5j5oxt2wkp" path="res://scripts/modifier cards/ExplosiveRounds.gd" id="1_re5ow"]
+
+[resource]
+script = ExtResource("1_re5ow")
+explosive_damage_modifier = 1.0
+explosive_range = 5.0
+projectile_speed_decrease = 1.0
+mode = 0
+priortiy = 0
+metadata/_custom_type_script = "uid://con5j5oxt2wkp"

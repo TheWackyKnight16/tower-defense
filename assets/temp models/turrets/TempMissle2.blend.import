@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dxoth547kslki"
-path="res://.godot/imported/TempMissle2.blend-7fd25fc5ada18ef2d7cd588409795e3b.scn"
+path="res://.godot/imported/TempMissle2.blend-fb6861dbe83af24f875167567dc33da3.scn"
 
 [deps]
 
-source_file="res://assets/temp models/TempMissle2.blend"
-dest_files=["res://.godot/imported/TempMissle2.blend-7fd25fc5ada18ef2d7cd588409795e3b.scn"]
+source_file="res://assets/temp models/turrets/TempMissle2.blend"
+dest_files=["res://.godot/imported/TempMissle2.blend-fb6861dbe83af24f875167567dc33da3.scn"]
 
 [params]
 
